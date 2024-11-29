@@ -25,6 +25,10 @@ body {
 	@include flex-center;
 	min-height: 100vh;
 	background-color: $color-primary;
+
+	@include responsive-design(680px) {
+		overflow-y: auto;
+	}
 }
 
 .cards {
@@ -37,9 +41,8 @@ body {
 
 	@media (max-width: 680px) {
 		width: 33rem;
+		min-height: 163vh;
 		flex-direction: column;
-		overflow-y: auto;
-		min-height: 100vh;
 		padding: 2rem 0;
 	}
 }

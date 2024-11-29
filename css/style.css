@@ -283,6 +283,11 @@ body {
   min-height: 100vh;
   background-color: #f2f2f2;
 }
+@media (max-width: 680px) {
+  body {
+    overflow-y: auto;
+  }
+}
 
 .cards {
   display: flex;
@@ -294,9 +299,8 @@ body {
 @media (max-width: 680px) {
   .cards {
     width: 33rem;
+    min-height: 163vh;
     flex-direction: column;
-    overflow-y: auto;
-    min-height: 100vh;
     padding: 2rem 0;
   }
 }
