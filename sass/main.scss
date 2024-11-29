@@ -1,0 +1,45 @@
+@forward "./base/reset";
+@use "./abstract" as *;
+
+// *** GLOBAL STYLES ***
+
+html {
+	@include responsive-design(1000px) {
+		font-size: 55%;
+	}
+
+	@include responsive-design(840px) {
+		font-size: 50%;
+	}
+
+	@include responsive-design(750px) {
+		font-size: 45%;
+	}
+
+	@include responsive-design(680px) {
+		font-size: 62.5%;
+	}
+}
+
+body {
+	@include flex-center;
+	height: 100vh;
+	background-color: $color-secondary;
+}
+
+.cards {
+	display: flex;
+	width: $cards-width;
+	height: $cards-height;
+
+	border-radius: 0.8rem;
+	overflow: hidden;
+
+	@media (max-width: 680px) {
+		width: 33rem;
+		flex-direction: column;
+		overflow-y: auto;
+		min-height: 100vh;
+		padding: 2rem 0;
+	}
+}

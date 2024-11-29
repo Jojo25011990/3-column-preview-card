@@ -1,0 +1,58 @@
+// *** Colors ***
+$color-primary: #f2f2f2;
+$color-secondary: #fff;
+
+$color-sedan: #e28625;
+$color-suv: #006971;
+$color-luxury: #004140;
+
+// *** Dimensions***
+$cards-width: 92rem;
+$cards-height: 50rem;
+
+// *** Typography ***
+$font-family-LD: "Lexend Deca", sans-serif;
+$font-family-BSD: "Big Shoulders Display", serif;
+
+$font-size-heading: 4rem;
+$font-weight-heading: 700;
+
+$font-size-description: 1.5rem;
+$font-weight-description: 400;
+
+$font-size-btn: 1.5rem;
+$font-weight-btn: 400;
+
+// *** Spacing ***
+$margin-bottom-heading: 2.5rem;
+$margin-bottom-description: 8.3rem;
+$margin-bottom-imgBox: 3.5rem;
+
+// *** Responsive Design ( Spacing ) ***
+$margin-bottom-description-res: 2.5rem;
+
+// *** Cards Colors ***
+$card-colors: (
+	sedan: $color-sedan,
+	suv: $color-suv,
+	luxury: $color-luxury,
+);
+
+// *** Cards Data ***
+$cards-data: (
+	"sedan": (
+		"bg-color-card": $color-sedan,
+		"color-primary": $color-primary,
+		"color-secondary": $color-secondary,
+	),
+	"suv": (
+		"bg-color-card": $color-suv,
+		"color-primary": $color-secondary,
+		"color-secondary": $color-primary,
+	),
+	"luxury": (
+		"bg-color-card": $color-luxury,
+		"color-primary": $color-primary,
+		"color-secondary": $color-secondary,
+	),
+);

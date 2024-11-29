@@ -1,0 +1,111 @@
+// *** Map of card colors ***
+@use "../abstract/variables" as *;
+
+// Flexbox Center
+@mixin flex-center() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+// Media Queries mixin
+@mixin responsive-design($breakpoint) {
+	@media (max-width: $breakpoint) {
+		@content;
+	}
+}
+
+@mixin card-styles($name, $data) {
+	$color: map-get($data, "bg-color-card");
+	$primary: map-get($data, "color-primary");
+	$secondary: map-get($data, "color-secondary");
+
+	.card-#{$name} {
+		background-color: $color;
+
+		// Card Styles
+		height: $cards-height;
+		padding: calc((50rem - 40.4rem) / 2) calc((30.7rem - 21.2rem) / 2);
+
+		// Media queries
+		@include responsive-design(680px) {
+			&:nth-child(1) {
+				border-top-left-radius: 0.8rem;
+				border-top-right-radius: 0.8rem;
+			}
+			&:nth-child(3) {
+				border-bottom-left-radius: 0.8rem;
+				border-bottom-right-radius: 0.8rem;
+			}
+		}
+
+		// Imgbox styles
+		&__imgBox {
+			margin-bottom: $margin-bottom-imgBox;
+		}
+
+		// Heading styles
+		&__heading {
+			color: $secondary;
+			margin-bottom: $margin-bottom-heading;
+
+			font: {
+				family: $font-family-BSD;
+				size: $font-size-heading;
+				weight: $font-weight-heading;
+			}
+		}
+
+		// Description styles
+		&__description {
+			color: $color-secondary;
+			margin-bottom: $margin-bottom-description;
+			line-height: 2.5rem;
+			opacity: 0.75;
+
+			font: {
+				family: $font-family-LD;
+				size: $font-size-description;
+				weight: $font-weight-description;
+			}
+
+			@include responsive-design(680px) {
+				margin-bottom: $margin-bottom-description-res;
+			}
+		}
+
+		// Link styles
+		&__link {
+			&:link,
+			&:visited {
+				display: inline-block;
+				width: 14.6rem;
+				height: 4.8rem;
+				text-align: center;
+				line-height: 4.8rem;
+				border-radius: 2.5rem;
+				color: $color;
+				background-color: $secondary;
+				outline: 0.2rem solid $secondary;
+				transition: background-color 0.3s, outline 0.3s, color 0.3s;
+
+				font: {
+					family: $font-family-LD;
+					size: $font-size-btn;
+					weight: $font-weight-btn;
+				}
+			}
+
+			&:hover,
+			&:active {
+				color: $secondary;
+				background-color: transparent;
+				outline: 0.2rem solid $secondary;
+			}
+		}
+	}
+}
+// Card loop (generating styles)
+@each $name, $color in $card-colors {
+	@include card-styles($name, map-get($cards-data, $name));
+}
